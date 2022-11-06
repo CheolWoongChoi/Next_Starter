@@ -9,6 +9,7 @@ import {
 } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import { useState } from 'react';
+import { RecoilRoot } from 'recoil';
 
 import { GlobalStyle } from '@/styles/GlobalStyle';
 
@@ -20,8 +21,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <CacheProvider value={cache}>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <GlobalStyle />
-          <Component {...pageProps} />
+          <RecoilRoot>
+            <GlobalStyle />
+            <Component {...pageProps} />
+          </RecoilRoot>
         </Hydrate>
       </QueryClientProvider>
     </CacheProvider>
