@@ -10,6 +10,8 @@
 - emotion.js
 - recoil
 - react-query
+- jest
+- cypress
 
 
 ## 특징
